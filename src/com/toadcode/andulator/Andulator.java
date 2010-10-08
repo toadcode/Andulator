@@ -9,6 +9,8 @@ public class Andulator extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        //this is the start of the app the rest of the code goes here 
+        //this is the start of the app the rest of the code goes here
+        
+        //this is another useless comment
     }
 }
