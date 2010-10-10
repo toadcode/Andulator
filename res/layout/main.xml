@@ -114,4 +114,9 @@
 			android:layout_span="2"></Button>	
 	</TableRow>
 	
+	<TextView android:id="@+id/divideWarning" android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:visibility="invisible"
+	></TextView>>
+	
 </TableLayout>

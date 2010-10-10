@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Gravity;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -26,6 +27,9 @@ public class Andulator extends Activity implements OnClickListener {
 	private Button addButton;
 	private Button subtractButton;
 	private Button multiplyButton;
+	
+	//warning label
+	private TextView warningLabel;
 	
 	//keeps track of the current operation
 	private int currentOperator;
@@ -92,6 +96,10 @@ public class Andulator extends Activity implements OnClickListener {
         //get a reference to the equals button
         equalsButton = (Button) findViewById(R.id.btnEquals);
         equalsButton.setOnClickListener(this);
+        
+        //get a reference for the divisor warning label
+        warningLabel = (TextView) findViewById(R.id.divideWarning);
+        
     }
     
     
@@ -141,6 +149,7 @@ public class Andulator extends Activity implements OnClickListener {
     			setOperator(DIVIDE);
     			firstNumber = Integer.valueOf(String.valueOf(resultTextView.getText()));
     			resetDisplay();
+    			showWarning();
     			break;
     		case R.id.btnAdd:
     			setOperator(ADD);
@@ -169,6 +178,16 @@ public class Andulator extends Activity implements OnClickListener {
     	resultTextView.setText(resultTextView.getText() + String.valueOf(number));
     }
     
+    private void showWarning(){
+    	//show the warning label
+    	warningLabel.setText("Caution: Dividing is wildly unusable, and highly inaccurate due to rounding errors.");
+    	warningLabel.setGravity(17);
+    	warningLabel.setBackgroundColor(-256);
+    	warningLabel.setTextColor(-16777216);
+    	//set visible
+    	warningLabel.setVisibility(0);
+    }
+    
     private void resetDisplay(){
     	//reset display to show a single zero
     	resultTextView.setText("0");
@@ -183,6 +202,9 @@ public class Andulator extends Activity implements OnClickListener {
     }
     
     private void calculateResult(){
+    	//set invisible
+    	warningLabel.setVisibility(1);
+    	
     	switch(currentOperator){
     		case DIVIDE:
     			result = firstNumber / Integer.valueOf(String.valueOf(resultTextView.getText()));
@@ -201,8 +223,7 @@ public class Andulator extends Activity implements OnClickListener {
     			setDisplay(String.valueOf(result));
     			break;
     	}
-    	
-    
+    	    
     }
     
 }
