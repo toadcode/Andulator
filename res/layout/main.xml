@@ -15,11 +15,12 @@
 			android:id="@+id/textResult"
 			android:layout_width="fill_parent"
 			android:layout_span="4"
-			android:background="#F0FFFF"
+			android:background="@color/textBgColor"
 			android:textSize="24sp"
 			android:gravity="right"
-			android:layout_marginLeft="2.5dp"
-			android:layout_marginRight="2.5dp"></TextView>
+			android:layout_marginLeft="3dp"
+			android:layout_marginRight="3dp"
+			android:textColor="@color/textColor"></TextView>
 	</TableRow>
 
 	<TableRow android:id="@+id/tableRowButtonOne" android:layout_marginTop="5dp">
