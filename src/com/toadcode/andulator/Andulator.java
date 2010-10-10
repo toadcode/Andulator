@@ -23,7 +23,9 @@ public class Andulator extends Activity implements OnClickListener {
 	private Button clearButton;
 	private Button divideButton;
 	private Button equalsButton;
+	private Button addButton;
 	private Button subtractButton;
+	private Button multiplyButton;
 	
 	//keeps track of the current operation
 	private int currentOperator;
@@ -73,6 +75,17 @@ public class Andulator extends Activity implements OnClickListener {
         //get a reference to the divide button
         divideButton = (Button) findViewById(R.id.btnDivide);
         divideButton.setOnClickListener(this);
+        
+        
+        // get a reference to the add button 
+        addButton = (Button) findViewById(R.id.btnAdd);
+        addButton.setOnClickListener(this);
+        
+        // get a reference to multiply button
+        addButton = (Button) findViewById(R.id.btnMultiply);
+        addButton.setOnClickListener(this);
+        
+        
         
         //get a reference to the subtract button
         subtractButton = (Button) findViewById(R.id.btnSubtract);
@@ -131,6 +144,16 @@ public class Andulator extends Activity implements OnClickListener {
     			firstNumber = Integer.valueOf(String.valueOf(resultTextView.getText()));
     			resetDisplay();
     			break;
+    		case R.id.btnAdd:
+    			setOperator(ADD);
+    			firstNumber  = Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			resetDisplay();
+    			break; 	
+    		case R.id.btnMultiply:
+    			setOperator(MULTIPLY);
+    			firstNumber = Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			resetDisplay();
+    			break;
     		case R.id.btnEquals:
     			calculateResult();
     			break;
@@ -170,7 +193,17 @@ public class Andulator extends Activity implements OnClickListener {
     		case SUBTRACT:
     			result = firstNumber - Integer.valueOf(String.valueOf(resultTextView.getText()));
     			setDisplay(String.valueOf(result));
+    		case ADD:
+    			result = firstNumber + Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			setDisplay(String.valueOf(result));
+    			break;
+    		case MULTIPLY:
+    			result  = firstNumber + Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			setDisplay(String.valueOf(result));
+    			break;
     	}
+    	
+    
     }
     
 }
