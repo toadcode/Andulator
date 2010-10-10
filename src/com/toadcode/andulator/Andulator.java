@@ -86,8 +86,8 @@ public class Andulator extends Activity implements OnClickListener {
         addButton.setOnClickListener(this);
         
         // get a reference to multiply button
-        addButton = (Button) findViewById(R.id.btnMultiply);
-        addButton.setOnClickListener(this);
+        multiplyButton = (Button) findViewById(R.id.btnMultiply);
+        multiplyButton.setOnClickListener(this);
         
         
         
@@ -190,7 +190,7 @@ public class Andulator extends Activity implements OnClickListener {
     			setDisplay(String.valueOf(result));
     			break;
     		case MULTIPLY:
-    			result  = firstNumber + Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			result  = firstNumber * Integer.valueOf(String.valueOf(resultTextView.getText()));
     			setDisplay(String.valueOf(result));
     			break;
     	}
