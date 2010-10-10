@@ -5,12 +5,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 public class Andulator extends Activity implements OnClickListener {
+	
+	//instance variables
+	private TextView resultTextView;
+	private Button clearButton;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,13 +48,67 @@ public class Andulator extends Activity implements OnClickListener {
         	}
         }
         
+        //get a reference to the result textbox
+        resultTextView = (TextView) findViewById(R.id.textResult);
+        //get a reference to the clear button
+        clearButton = (Button) findViewById(R.id.btnClear);
+        clearButton.setOnClickListener(this);
+        
     }
     
     
     public void onClick(View v){
     	//when any button with a registered handler is clicked
-    	Log.i("event", "view clicked");
+    	//test which button has been clicked and act appropriately
+    	switch(v.getId()){
+    		case R.id.btn0:
+    			addIntegerToDisplay(0);
+    			break;
+    		case R.id.btn1:
+    			addIntegerToDisplay(1);
+    			break;
+    		case R.id.btn2:
+    			addIntegerToDisplay(2);
+    			break;
+    		case R.id.btn3:
+    			addIntegerToDisplay(3);
+    			break;
+    		case R.id.btn4:
+    			addIntegerToDisplay(4);
+    			break;
+    		case R.id.btn5:
+    			addIntegerToDisplay(5);
+    			break;
+    		case R.id.btn6:
+    			addIntegerToDisplay(6);
+    			break;
+    		case R.id.btn7:
+    			addIntegerToDisplay(7);
+    			break;
+    		case R.id.btn8:
+    			addIntegerToDisplay(8);
+    			break;
+    		case R.id.btn9:
+    			addIntegerToDisplay(9);
+    			break;
+    		case R.id.btnClear:
+    			resetDisplay();
+    			break;
+    		default:
+    			Log.i("button_click", "Something else was clicked");
+    	}
     }
     
+    private void addIntegerToDisplay(int number){
+	   	if (String.valueOf(resultTextView.getText()) == "0"){
+			resultTextView.setText("");
+		}
+    	resultTextView.setText(resultTextView.getText() + String.valueOf(number));
+    	//Log.i("EVENT", String.valueOf(resultTextView.getText()));
+    }
+    
+    private void resetDisplay(){
+    	resultTextView.setText("0");
+    }
     
 }
