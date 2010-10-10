@@ -14,7 +14,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/textResult"
 			android:layout_width="fill_parent"
-			android:layout_span="4"
+			android:layout_span="3"
 			android:background="@color/textBgColor"
 			android:textSize="24sp"
 			android:gravity="right"
@@ -36,12 +36,6 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/btn9"
 			android:text="9"></Button>
-			
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/btnMultiply"
-			android:text="*"></Button>
 	</TableRow>
 	
 	<TableRow android:id="@+id/tableRowButtonTwo">
@@ -57,12 +51,6 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/btn6"
 			android:text="6"></Button>
-			
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/btnDivide"
-			android:text="/"></Button>
 	</TableRow>
 	
 	<TableRow android:id="@+id/tableRowButtonThree">
@@ -78,31 +66,48 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/btn3"
 			android:text="3"></Button>
-			
-		<Button
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/btnSubtract"
-			android:text="-"></Button>
 	</TableRow>
-	
+		
 	<TableRow android:id="@+id/tableRowButtonFour">
 		<Button
 			android:layout_height="wrap_content"
 			android:id="@+id/btn0"
 			android:text="0"
 			android:layout_column="1"></Button>
+	</TableRow>
+	
+	<TableRow android:id="@+id/tableRowButtonOperators" android:layout_marginTop="5dp">
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/btnMultiply"
+			android:text="*"></Button>
 		<Button android:id="@+id/btnAdd"
 			android:text="+"
 			android:layout_height="wrap_content"
-			android:layout_column="3"></Button>
+			android:layout_column="1"
+			android:layout_span="2"></Button>
+	</TableRow>
+		
+	<TableRow android:id="@+id/tableRowButtonOperatorsTwo">
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/btnDivide"
+			android:text="/"></Button>
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/btnSubtract"
+			android:text="-"
+			android:layout_span="2"></Button>
 	</TableRow>
 	
 	<TableRow android:id="@+id/tableRowButtonFive" android:layout_marginTop="5dp">
 		<Button android:id="@+id/btnClear"
 			android:text="clear"
 			android:layout_height="wrap_content"
-			android:layout_span="2"></Button>
+			android:layout_span="1"></Button>
 		<Button android:id="@+id/btnEquals"
 			android:text="equals"
 			android:layout_height="wrap_content"

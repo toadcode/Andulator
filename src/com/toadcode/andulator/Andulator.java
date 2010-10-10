@@ -23,6 +23,7 @@ public class Andulator extends Activity implements OnClickListener {
 	private Button clearButton;
 	private Button divideButton;
 	private Button equalsButton;
+	private Button subtractButton;
 	
 	//keeps track of the current operation
 	private int currentOperator;
@@ -73,6 +74,10 @@ public class Andulator extends Activity implements OnClickListener {
         divideButton = (Button) findViewById(R.id.btnDivide);
         divideButton.setOnClickListener(this);
         
+        //get a reference to the subtract button
+        subtractButton = (Button) findViewById(R.id.btnSubtract);
+        subtractButton.setOnClickListener(this);
+        
         //get a reference to the equals button
         equalsButton = (Button) findViewById(R.id.btnEquals);
         equalsButton.setOnClickListener(this);
@@ -116,6 +121,11 @@ public class Andulator extends Activity implements OnClickListener {
     		case R.id.btnClear:
     			resetDisplay();
     			break;
+    		case R.id.btnSubtract:
+    			setOperator(SUBTRACT);
+    			firstNumber = Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			resetDisplay();
+    			break;
     		case R.id.btnDivide:
     			setOperator(DIVIDE);
     			firstNumber = Integer.valueOf(String.valueOf(resultTextView.getText()));
@@ -157,6 +167,9 @@ public class Andulator extends Activity implements OnClickListener {
     			result = firstNumber / Integer.valueOf(String.valueOf(resultTextView.getText()));
     			setDisplay(String.valueOf(result));
     			break;
+    		case SUBTRACT:
+    			result = firstNumber - Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			setDisplay(String.valueOf(result));
     	}
     }
     
