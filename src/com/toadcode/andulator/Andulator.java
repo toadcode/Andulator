@@ -202,7 +202,7 @@ public class Andulator extends Activity implements OnClickListener {
     
     private void calculateResult(){
     	//set invisible
-    	warningLabel.setVisibility(1);
+    	warningLabel.setVisibility(4);
     	
     	switch(currentOperator){
     		case DIVIDE:
