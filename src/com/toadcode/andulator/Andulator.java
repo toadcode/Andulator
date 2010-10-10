@@ -12,9 +12,23 @@ import android.widget.TextView;
 
 public class Andulator extends Activity implements OnClickListener {
 	
+	//constants
+	private final int ADD = 1;
+	private final int SUBTRACT = 2;
+	private final int MULTIPLY = 3;
+	private final int DIVIDE = 4;
+	
 	//instance variables
 	private TextView resultTextView;
 	private Button clearButton;
+	private Button divideButton;
+	private Button equalsButton;
+	
+	//keeps track of the current operation
+	private int currentOperator;
+	private int firstNumber;
+	private int result;
+	
 	
     /** Called when the activity is first created. */
     @Override
@@ -55,6 +69,13 @@ public class Andulator extends Activity implements OnClickListener {
         clearButton = (Button) findViewById(R.id.btnClear);
         clearButton.setOnClickListener(this);
         
+        //get a reference to the divide button
+        divideButton = (Button) findViewById(R.id.btnDivide);
+        divideButton.setOnClickListener(this);
+        
+        //get a reference to the equals button
+        equalsButton = (Button) findViewById(R.id.btnEquals);
+        equalsButton.setOnClickListener(this);
     }
     
     
@@ -95,6 +116,14 @@ public class Andulator extends Activity implements OnClickListener {
     		case R.id.btnClear:
     			resetDisplay();
     			break;
+    		case R.id.btnDivide:
+    			setOperator(DIVIDE);
+    			firstNumber = Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			resetDisplay();
+    			break;
+    		case R.id.btnEquals:
+    			calculateResult();
+    			break;
     		default:
     			Log.i("button_click", "An unhandled button click occured.");
     	}
@@ -112,6 +141,23 @@ public class Andulator extends Activity implements OnClickListener {
     private void resetDisplay(){
     	//reset display to show a single zero
     	resultTextView.setText("0");
+    }
+    
+    private void setDisplay(String displayString){
+    	resultTextView.setText(displayString);
+    }
+    
+    private void setOperator(int operator){
+    	currentOperator = operator;
+    }
+    
+    private void calculateResult(){
+    	switch(currentOperator){
+    		case DIVIDE:
+    			result = firstNumber / Integer.valueOf(String.valueOf(resultTextView.getText()));
+    			setDisplay(String.valueOf(result));
+    			break;
+    	}
     }
     
 }
