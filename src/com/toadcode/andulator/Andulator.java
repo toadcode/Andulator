@@ -48,9 +48,10 @@ public class Andulator extends Activity implements OnClickListener {
         	}
         }
         
-        //get a reference to the result textbox
+        //get a reference to the result TextView
         resultTextView = (TextView) findViewById(R.id.textResult);
-        //get a reference to the clear button
+               
+        //get a reference to the clear button and set it's click listener
         clearButton = (Button) findViewById(R.id.btnClear);
         clearButton.setOnClickListener(this);
         
@@ -95,19 +96,21 @@ public class Andulator extends Activity implements OnClickListener {
     			resetDisplay();
     			break;
     		default:
-    			Log.i("button_click", "Something else was clicked");
+    			Log.i("button_click", "An unhandled button click occured.");
     	}
     }
     
     private void addIntegerToDisplay(int number){
-	   	if (String.valueOf(resultTextView.getText()) == "0"){
+    	//if it's zero, don't add another zero
+	   	if (Integer.valueOf(String.valueOf(resultTextView.getText())) == 0){
 			resultTextView.setText("");
 		}
+	   	//set the text to the old text + the new text
     	resultTextView.setText(resultTextView.getText() + String.valueOf(number));
-    	//Log.i("EVENT", String.valueOf(resultTextView.getText()));
     }
     
     private void resetDisplay(){
+    	//reset display to show a single zero
     	resultTextView.setText("0");
     }
     
