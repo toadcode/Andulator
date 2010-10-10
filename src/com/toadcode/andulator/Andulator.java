@@ -85,8 +85,6 @@ public class Andulator extends Activity implements OnClickListener {
         multiplyButton = (Button) findViewById(R.id.btnMultiply);
         multiplyButton.setOnClickListener(this);
         
-        
-        
         //get a reference to the subtract button
         subtractButton = (Button) findViewById(R.id.btnSubtract);
         subtractButton.setOnClickListener(this);
@@ -193,6 +191,7 @@ public class Andulator extends Activity implements OnClickListener {
     		case SUBTRACT:
     			result = firstNumber - Integer.valueOf(String.valueOf(resultTextView.getText()));
     			setDisplay(String.valueOf(result));
+    			break;
     		case ADD:
     			result = firstNumber + Integer.valueOf(String.valueOf(resultTextView.getText()));
     			setDisplay(String.valueOf(result));
