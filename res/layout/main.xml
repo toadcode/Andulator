@@ -18,8 +18,8 @@
 			android:background="@color/textBgColor"
 			android:textSize="24sp"
 			android:gravity="right"
-			android:layout_marginLeft="3dp"
-			android:layout_marginRight="3dp"
+			android:layout_marginLeft="4dp"
+			android:layout_marginRight="4dp"
 			android:textColor="@color/textColor"></TextView>
 	</TableRow>
 
